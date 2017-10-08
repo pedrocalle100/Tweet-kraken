@@ -3,7 +3,7 @@ import angularMeteor from "angular-meteor"
 import template from "./twitter.html"
 
 
-class TwitterTrending{
+class twitterTrending{
   constructor(){
     console-log("Hola mundo")
   }
@@ -11,7 +11,7 @@ class TwitterTrending{
 
 export default angular.module("twitterCtrl",[
   angularMeteor
-]).component("TwitterTrending",{
+]).component("twitterTrending",{
   templateUrl: template,
-  controller: ["scope", TwitterTrending]
+  controller: ["scope", twitterTrending]
 })
