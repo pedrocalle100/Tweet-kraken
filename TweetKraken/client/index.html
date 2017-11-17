@@ -1,0 +1,132 @@
+<!-- MAIN BOILERPLATE -->
+<head>
+  <!--<script type="text/javascript" src="/client/map.js"></script>-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Poppins|Raleway" rel="stylesheet">
+
+  <!--CSS bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+  <!--Javascript bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="picture.js" type="text/javascript">
+
+  </script>
+
+  <style>
+    body{
+      background: linear-gradient(to bottom, #F5F5F5, #37474F);
+      height: 100%;
+      width: 100%;
+    }
+
+  </style>
+
+  <title>Tweet Kraken</title>
+</head>
+<body>
+
+
+
+    <!--<h1>Tweet Kraken</h1>-->
+    <div class="row">
+      <div class="col-md-12">
+        <p style="text-align:center">
+          <img class="logo" src="/images/kraken.png" alt="kraken">
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2 style="text-align:center" class="slogan">Pulled fresh from Twitter</h2>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <div class="container">
+         {{> trending}}
+      </div>
+    </div>
+</body>
+
+<!-- TEMPLATES -->
+<template name="trending" text-align="center">
+
+  {{#each trends}}
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card card-1">
+          <div class="col-md-12">
+            <br>
+            <h2 style="color:black" class="title">{{name}}</h2>
+            <hr>
+            <h2 style="color:black" class="tweet"> {{tweets}} </h2>
+
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="wrapper">
+                <div class="like">
+                  <p><img class="like" src="/images/ok.png" alt="like"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="img">
+                <div id="meme" class="none">
+                  <p class="img"><img class="contentImage" src="{{img}}" alt=""></p>
+                  <!--<canvas id="canvas"></canvas>-->
+                </div>
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="col-md-3">
+                <div class="dislike">
+                    <p style="text-align: left"><img class="dislike" src="/images/broken-heart.png" alt="dislike"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{#if trendtime}}
+                <h3 style="color:black">Sentiment</h3> <h3 style="color:black">{{sentiment}}</h3>
+              {{/if}}
+              <h6 style="color:black">More from:<p style="text-align:center"><a class="twitterBtn smGlobalBtn" href="{{url}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></p></h6><br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+
+
+
+    {{/each}}
+  <div class="col-md-12">
+    <small>Trending topics: {{trendtime}} </small><br/>
+    <small>those will automatically update every 5 minutes</small><br/>
+  </div>
+</template>
+
+
+<template name="buttons" text-align="center">
+  <div class="wrapper">
+    <button type="button" class="btn btn-warning" name="alegria">Me gusta</button>
+    <button type="button" class="btn btn-info" name="sorpresa">Me sorprende</button>
+    <button type="button" class="btn btn-primary" name="tristeza">Me entristece</button>
+    <button type="button" class="btn btn-danger" name="rabia">Me enfurece</button>
+    <button type="button" class="btn btn-basic" name="alegria">Neutral</button>
+  </div>
+</template>
+
+<!--
+<script type="text/javascript">
+  document.write(getImageTag());
+</script>
+-->
